@@ -11,7 +11,10 @@ module.exports = {
 
 function logger(req, res, next) {
   // DO YOUR MAGIC
-  
+  console.log(
+    `[${new Date().toISOString()}] to ${req.method} from ${req.originalUrl}`
+  );
+  next();
 }
 
 function validateUserId(req, res, next) {
