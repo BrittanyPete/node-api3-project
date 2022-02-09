@@ -1,5 +1,17 @@
+const Users = require('../users/users-model');
+const Posts = require('../posts/posts-model');
+
+module.exports = {
+  logger,
+  validateUserId,
+  validateUser,
+  validatePost,
+};
+
+
 function logger(req, res, next) {
   // DO YOUR MAGIC
+  
 }
 
 function validateUserId(req, res, next) {
