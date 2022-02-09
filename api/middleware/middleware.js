@@ -17,8 +17,18 @@ function logger(req, res, next) {
   next();
 }
 
-function validateUserId(req, res, next) {
+async function validateUserId(req, res, next) {
   // DO YOUR MAGIC
+  let id = req.params.id;
+  let result = await Users.getById(id);
+  if(!result) {
+    res.status(404).json({
+      message: 'user not found'
+    });
+  } else {
+    req.user = result;
+    next();
+  }
 }
 
 function validateUser(req, res, next) {

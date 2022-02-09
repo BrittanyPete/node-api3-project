@@ -12,6 +12,15 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   // RETURN AN ARRAY WITH ALL THE USERS
+  Users.get(req.query)
+  .then(users => {
+    res.status(200).json(users);
+  })
+  .catch(err => {
+    res.status(500).json({
+      message: 'could not get list of users'
+    })
+  })
 });
 
 router.get('/:id', (req, res) => {
